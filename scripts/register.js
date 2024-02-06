@@ -5,29 +5,54 @@ let salon={
         street:"Palm",
         number:"262-K",
         zip:"12345"
-    }
-},
-pets:[
-    {
-        name:"Dari",
-        age:2
     },
-    {
-        name:"Luna",
-        age:9
-    }
-    {
-        name:"Mori",
-        age:1
-    }
-]  // pets array
+    pets:[]  // pets array
+}
 
-console.log(salon.pets[0].name);
-console.log(salon.pets[1].name);
-console.log(salon.pets[2].name);
-console.log(salon.pets.length);
 
-// use a for loop to travel the array
+//constructor
+function pet(n,a,g){
+    this.name=n;
+    this.age=a;
+    this.gender=g;
+    this.breed=b;
+    this.service=s;
+    this.type=t;
+}
+
+function displayPetNames(){
+    for(let i=0;i<salon.pets.length;i++){
+        document.getElementById("pets").innerHTML=`
+        <p>${salon.pets[i].name}</p>
+        `
+    }
+}
+
+
+let inputName = document.getElementById("txtName");
+let inputAge = document.getElementById("txtAge");
+let inputGender = document.getElementById("txtGender");
+let inputBreed = document.getElementById("textBreed");
+let inputService = document.getElementById("textService");
+let inputType = document.getElementById("textType");
+
+
+function register(){
+    //get the values from the input
+    //use the constructor to create an obj
+    let newPet = new Pet(inputName.value,inputAge.value,inputGender.value);
+    
+}
+
+function init(){
+    //creating predifined object
+    let pet1=new Pet("Dari",2,"Female");
+    let pet2=new Pet("Luna",9,"Female");
+    let pet3=new Pet("Mori",1,"Female");
+    salon.pets.push(pet1,pet2,pet3)
+    //executing functions
+    displayPetNames()
+}
 
 
 function displayFooterInfo(){
@@ -37,4 +62,6 @@ function displayFooterInfo(){
     `;
     
 }
+
 displayFooterInfo();
+
