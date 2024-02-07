@@ -37,21 +37,47 @@
 
             <div class="mb-3">
                 <label class="form-label">Gender:</label>
-                <input type="text" class="form-control" id="txtGender" >
+                <select type="text" class="form-control" id="txtGender" >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                </select>
             </div>
-            <button class="btn btn-success" onclick="register();">Register</button>
+            <div class="mb-3">
+                <label class="form-label">Breed:</label>
+                <input type="text" class="form-control" id="txtBreed" >
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Service:</label>
+                <select type="text" class="form-control" id="txtService" >
+                <option value="bathBrush">Bath & Brush</option>
+                <option value="haircutBath">Haircut & Bath</option>
+                <option value="luxuryPackage">Luxury Package</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Type:</label>
+                <select type="type" class="form-control" id="txtType" >
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <button class="btn btn-success" id="registerBtn">Register</button>
+
         </div>
 
         <div id="info">
             <h2>Registered pets<span id="totalPets"></span></h2>
             <div id="pets">
-
+                <!-- Pet names will be dynamically added here -->
             </div>
+            
         </div>
     </main>
     <footer class="site-footer">
         <p>&copy; 2024 The Fashion Pet Salon | Phone: 123-456-7890 | Address: 262-K Palm, 12345</p>
     </footer>
-    <script src="./scripts/register.js"></script>
+    <script src="./scripts/register.js" defer></script>
 </body>
 </html>

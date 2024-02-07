@@ -34,21 +34,33 @@ a {
 }
 
 /* Main Styles */
-.main {
+main {
     padding: 2rem;
 }
 
 /* Welcome Section Styles */
 .welcome-section {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.welcome-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
 }
 
 .welcome-container img {
-    display: block;
-    width: 100%;
+    width: 48%;
+    height: 55rem; 
+    object-fit: cover;
     border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+.welcome-text {
+    padding: 1rem;
 }
 
 /* Services Section Styles */
@@ -58,6 +70,16 @@ a {
 
 .services-section h2 {
     color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+.services-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.services-section li {
+    margin-bottom: 0.5rem;
 }
 
 /* Pet Section Styles */
@@ -67,6 +89,7 @@ a {
 
 .pet-section h2 {
     color: #4CAF50;
+    margin-bottom: 1rem;
 }
 
 .pet-names-container {
