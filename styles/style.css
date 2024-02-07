@@ -1,4 +1,4 @@
-/* Global Styles */
+/* Global */
 * {
     padding: 0;
     margin: 0;
@@ -25,7 +25,7 @@ a {
     height: 8rem;
 }
 
-/* Header Styles */
+/* Header */
 .site-init {
     background-color: #3bb4da;
     color: white;
@@ -33,12 +33,12 @@ a {
     text-align: center;
 }
 
-/* Main Styles */
+/* Main */
 main {
     padding: 2rem;
 }
 
-/* Welcome Section Styles */
+/* Welcome Section */
 .welcome-section {
     display: flex;
     flex-wrap: wrap;
@@ -63,7 +63,7 @@ main {
     padding: 1rem;
 }
 
-/* Services Section Styles */
+/* Services Section */
 .services-section {
     margin-top: 2rem;
 }
@@ -82,7 +82,7 @@ main {
     margin-bottom: 0.5rem;
 }
 
-/* Pet Section Styles */
+/* Pet Section */
 .pet-section {
     margin-top: 2rem;
 }
@@ -105,7 +105,7 @@ main {
     border-radius: 0.5rem;
 }
 
-/* Footer Styles */
+/* Footer */
 .site-footer {
     background-color: #333;
     color: white;
