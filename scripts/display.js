@@ -13,6 +13,7 @@ function displayPetNames() {
         const petCard = document.createElement("div");
         petCard.classList.add("pet-card");
         petCard.innerHTML = `
+            <button class="close-button" onclick="deletePet(${i})">×</button>
             <p>Name: ${salon.pets[i].name}</p>
             <p>Age: ${salon.pets[i].age}</p>
             <p>Gender: ${salon.pets[i].gender}</p>
@@ -30,7 +31,7 @@ function displayPetNames() {
 
     // Create table header
     const headerRow = petsTable.insertRow(0);
-    const headerNames = ["Name", "Breed", "Gender","Breed","Service","Type"];
+    const headerNames = ["Name", "Age", "Gender", "Breed", "Service", "Type", "Actions"];
     for (let i = 0; i < headerNames.length; i++) {
         const headerCell = headerRow.insertCell(i);
         headerCell.innerHTML = headerNames[i];
@@ -46,8 +47,26 @@ function displayPetNames() {
         petRow.insertCell(3).innerHTML = pet.breed;
         petRow.insertCell(4).innerHTML = pet.service;
         petRow.insertCell(5).innerHTML = pet.type;
+        const deleteButtonCell = petRow.insertCell(6);
+        const deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "Delete";
+        deleteButton.onclick = function() {
+            deletePet(i);
+        };
+        deleteButtonCell.appendChild(deleteButton);
     }
 
     // Append the table to the petsContainer
     petsContainer.appendChild(petsTable);
 }
+
+function deletePet(index) {
+    // Remove the pet from the salon.pets array
+    salon.pets.splice(index, 1);
+
+    // Redisplay the updated pet list
+    displayPetNames();
+}
+
+// Initial display
+displayPetNames();

@@ -22,67 +22,77 @@ function Pet(n, a, g, b, s, t) {
 // Function to register a new pet
 function register() {
     // Get form values
-    const name = document.getElementById("txtName").value;
-    const age = document.getElementById("txtAge").value;
-    const gender = document.getElementById("txtGender").value;
-    const breed = document.getElementById("txtBreed").value;
-    const service = document.getElementById("txtService").value;
-    const type = document.getElementById("txtType").value;
+    const name = document.getElementById("txtName");
+    const age = document.getElementById("txtAge");
+    const breed = document.getElementById("txtBreed");
 
     // Create a new pet object
-    const newPet = new Pet(name, age, gender, breed, service, type);
+    const newPet = new Pet(
+        name.value,
+        age.value,
+        document.getElementById("txtGender").value,
+        breed.value,
+        document.getElementById("txtService").value,
+        document.getElementById("txtType").value
+    );
 
     // Validate the pet
     if (isValid(newPet)) {
-        // Save the pet to the salon
         salon.pets.push(newPet);
-
-        // Display the registered pets
         displayPetNames();
-
-        // Show a success notification
-        showNotifications("Successful");
+        // Show success notification
+        showNotifications("Successful", "alert-success");
+        // Reset input fields
+        name.value = "";
+        age.value = "";
+        breed.value = "";
     } else {
-        // Display a notification for invalid input
-        showNotifications("Please fill in all the required fields.");
+        showNotifications("Please fill in all the required fields.", "alert-error");
     }
 }
+
+function showNotifications(msg, className) {
+    const notificationsElement = document.getElementById("notifications");
+    notificationsElement.textContent = msg;
+
+    // Colors based on user input
+    if (className === "alert-error") {
+        notificationsElement.style.color = "#B80000";
+    } else if (className === "alert-success") {
+        notificationsElement.style.color = "#155724";
+    }
+
+    notificationsElement.classList.remove("hidden", "alert-error", "alert-success");
+    notificationsElement.classList.add(className);
+
+    setTimeout(function () {
+        notificationsElement.classList.add("hidden");
+    }, 3000);
+}
+
 function isValid(aPet) {
     let validation = true;
-
-    // Clear the style
     document.getElementById("txtName").classList.remove("alert-error");
     document.getElementById("txtAge").classList.remove("alert-error");
     document.getElementById("txtBreed").classList.remove("alert-error");
-    
+
     if (aPet.name === "") {
-        // The pet is not valid
         validation = false;
         document.getElementById("txtName").classList.add("alert-error");
     }
 
     if (aPet.age === "") {
-        // The pet is not valid
+        // Invalid pet input
         validation = false;
         document.getElementById("txtAge").classList.add("alert-error");
     }
     if (aPet.breed === "") {
-        // The pet is not valid
+        // Invalid pet input
         validation = false;
         document.getElementById("txtBreed").classList.add("alert-error");
     }
 
-
-    // Add more validation checks for other fields if needed
-
     return validation;
-}
-
-
-function showNotifications(msg) {
-    const notificationsElement = document.getElementById("notifications");
-    notificationsElement.textContent = msg;
-    notificationsElement.classList.remove("hidden");
 }
 
 function displayPetNames() {
@@ -99,20 +109,18 @@ function displayPetNames() {
     });
 }
 
+// Display my fur babies
 function init() {
-    let pet1 = new Pet("Dari", 2, "Female", "Dachshund", "Luxury Package", "Dog");
+    let pet1 = new Pet("Dari", 2, "Female", "Miniature Dachshund", "Luxury Package", "Dog");
     salon.pets.push(pet1);
     let pet2 = new Pet("Luna", 9, "Female", "German Shepherd", "Luxury Package", "Dog");
     salon.pets.push(pet2);
     let pet3 = new Pet("Mori", 1, "Female", "Pembroke Welsh Corgi", "Luxury Package", "Dog");
     salon.pets.push(pet3);
 
-    // Display the initially registered pets
+    // Display initially registered fur babies
     displayPetNames();
 }
 
-// Display the initially registered pets when the page loads
-document.addEventListener("DOMContentLoaded", init);
-
-// Ensure that the register button click triggers the register function
-document.getElementById("registerBtn").addEventListener("click", register);
+window.onload = init;
+document.getElementById("registerBtn").onclick = register;

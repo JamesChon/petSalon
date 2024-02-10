@@ -30,6 +30,25 @@ a {
 }
 
 
+.alert-error {
+    color: #721c24; 
+    background-color: #f8d7da; 
+    border: 1px solid #f5c6cb;
+    padding: 8px; 
+    margin-bottom: 10px;
+    border-radius: 4px; 
+}
+
+.alert-success {
+    color: #155724; 
+    background-color: #d4edda; 
+    border: 1px solid #c3e6cb;
+    padding: 8px; 
+    margin-bottom: 10px; 
+    border-radius: 4px; 
+}
+
+
 /* Header */
 .site-init {
     background-color: #3bb4da;
@@ -124,6 +143,45 @@ main {
     width: calc(33.333% - 1rem); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+}
+
+/* Close button style */
+.close-button {
+    background-color: transparent;
+    border: none;
+    color: red; /* You can change the color */
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+/* Card style */
+.pet-card {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Table style */
+#petsTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#petsTable th, #petsTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#petsTable th {
+    background-color: #f2f2f2;
+}
+
+/* Adjust the table row height if needed */
+#petsTable tr {
+    height: 40px;
 }
 
 
