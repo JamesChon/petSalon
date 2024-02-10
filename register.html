@@ -23,8 +23,10 @@
     <main class="container">
 
         <h2>Register a new pet</h2>
-        
         <div id="pet">
+            <div id="notifications" class="hidden">
+                <p>this is the notification section</p>
+            </div>
             <div class="mb-3">
                 <label class="form-label">Name:</label>
                 <input type="text" class="form-control" id="txtName" >
@@ -70,14 +72,14 @@
         <div id="info">
             <h2>Registered pets<span id="totalPets"></span></h2>
             <div id="pets">
-                <!-- Pet names will be dynamically added here -->
+                
             </div>
-            
         </div>
     </main>
     <footer class="site-footer">
         <p>&copy; 2024 The Fashion Pet Salon | Phone: 123-456-7890 | Address: 262-K Palm, 12345</p>
     </footer>
     <script src="./scripts/register.js" defer></script>
+    <script src="./scripts/display.js" defer></script>
 </body>
 </html>
