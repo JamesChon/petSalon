@@ -17,6 +17,12 @@ function Pet(n, a, g, b, s, t) {
     this.breed = b;
     this.service = s;
     this.type = t;
+    this.id = PetID();  
+}
+
+// Function to generate a random 5-digit number
+function PetID() {
+    return Math.floor(10000 + Math.random() * 90000);
 }
 
 // Function to register a new pet
