@@ -1,14 +1,14 @@
-function saveArray(item){
+function saveArray(item,key){
     let itemsArray = readItems();
     itemsArray.push(item);
     let val = JSON.stringify(itemsArray); // stringifying the entire array
 
-    localStorage.setItem("services", val);
+    localStorage.setItem(key, val);
 }
 
-function readItems(){
+function readItems(key){
     // Getting items from the localStorage
-    let data = localStorage.getItem("services"); 
+    let data = localStorage.getItem(key); 
     if(!data){ // No data?
         return [];
     } else {

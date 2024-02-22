@@ -115,6 +115,8 @@ function displayPetNames() {
     });
 }
 
+
+
 // Display my fur babies
 function init() {
     let pet1 = new Pet("Dari", 2, "Female", "Miniature Dachshund", "Luxury Package", "Dog");

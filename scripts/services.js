@@ -25,7 +25,8 @@ function addService(){
     displayItems(services);
 }
 
-function displayItems(items){
+function displayItems(){
+    let items=readItems(); // Gettingh the items from the LS
     let htmlList = $("#services");
     htmlList.html("");
     let li;
@@ -33,5 +34,17 @@ function displayItems(items){
         let item = items[i];
         li = `<li>${items[i].description} - $${item.price}</li>`;
         htmlList.append(li);
+    }
+}
+
+function getServices() {
+    // create predefined obj
+    let servicesList = readItems();
+    for (let i = 0; i < servicesList.length; i++){
+        let service = servicesList[i];
+        $('#txtService').append(
+            `<option value = "${service.description}">
+            ${service.description}</option>`
+        )
     }
 }
